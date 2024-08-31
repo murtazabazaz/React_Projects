@@ -64,7 +64,7 @@ function App() {
           </menu>
           {/* Using and operator if true to select the <p> statement*/}
 
-          {!selectedTopic && <p>Please select a topic. </p>}
+          {!selectedTopic && <p>Please select a topic to view. </p>}
 
           {/* using this if a button is clicked */}
 
@@ -84,6 +84,7 @@ function App() {
 
       <footer id='footer'>
         <p>Created by Murtaza Bazaz</p>
+        <p></p>
       </footer>
     </div>
   );
