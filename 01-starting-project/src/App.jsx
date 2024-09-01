@@ -22,15 +22,21 @@ function App() {
 
           <h2>Core Concepts.</h2>
           <ul>
-            <CoreConcept
+          {CORE_CONCEPTS.map((conceptItem)=> (
+            <CoreConcept {...conceptItem} />
+          ))}
+
+          {/*  dynamic outputting of list data instead of writing cCoreConcept 4 times. */}
+             {/* <CoreConcept
               title={CORE_CONCEPTS[0].title}
               description={CORE_CONCEPTS[0].description}
               image={CORE_CONCEPTS[0].image}
-            />
+            /> */}
             {/* Another way of using spread operator to pull out data from the index you provide*/}
-            <CoreConcept {...CORE_CONCEPTS[1]} />
+            {/* <CoreConcept {...CORE_CONCEPTS[1]} />
             <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />  */}
+            
           </ul>
 
         </section>
