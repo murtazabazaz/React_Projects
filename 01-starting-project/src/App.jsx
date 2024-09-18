@@ -1,98 +1,20 @@
-import { useState } from 'react'
-import { CORE_CONCEPTS } from "./data.js";
 import Header from './components/Header/Header.jsx'
-import CoreConcept from "./components/CoreConcept.jsx";
-import TabButton from "./components/tabButton.jsx";
-import { EXAMPLES } from './data.js'
+import CoreConcepts from './components/CoreConcepts.jsx';
+import Examples from './components/Examples.jsx';
+
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState();
-
-
-  function handleSelect(selectedButton) {
-    // selected button -: 'component'....
-    setSelectedTopic(selectedButton)
-    // console.log(selectedTopic)
-
-  }
   return (
-    <div>
+    <>
       <Header />
       <main>
-        <section id="core-concepts">
-
-          <h2>Core Concepts.</h2>
-          <ul>
-          {CORE_CONCEPTS.map((conceptItem)=> (
-            <CoreConcept {...conceptItem} />
-          ))}
-
-          {/*  dynamic outputting of list data instead of writing cCoreConcept 4 times. */}
-             {/* <CoreConcept
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            /> */}
-            {/* Another way of using spread operator to pull out data from the index you provide*/}
-            {/* <CoreConcept {...CORE_CONCEPTS[1]} />
-            <CoreConcept {...CORE_CONCEPTS[2]} />
-            <CoreConcept {...CORE_CONCEPTS[3]} />  */}
-            
-          </ul>
-
-        </section>
-        <section id="examples">
-          <h2>Examples</h2>
-          <menu>
-            <TabButton
-              isSelectedcss={selectedTopic === 'components'}
-              onSelect={() => handleSelect('components')}
-            >
-              Components
-            </TabButton>
-            <TabButton
-              isSelectedcss={selectedTopic === 'jsx'}
-              onSelect={() => handleSelect('jsx')}
-            >
-              JSX
-            </TabButton>
-            <TabButton
-              isSelectedcss={selectedTopic === 'props'}
-              onSelect={() => handleSelect('props')}
-            >
-              Props
-            </TabButton>
-            <TabButton
-              isSelectedcss={selectedTopic === 'state'}
-              onSelect={() => handleSelect('state')}
-            >
-              State
-            </TabButton>
-          </menu>
-          {/* Using and operator if true to select the <p> statement*/}
-
-          {!selectedTopic && <p>Please select a topic to view. </p>}
-
-          {/* using this if a button is clicked */}
-
-          {selectedTopic && (
-            <div id='tab-content'>
-              <h3>{EXAMPLES[selectedTopic].title}</h3>
-              <p>{EXAMPLES[selectedTopic].description}</p>
-              <pre>
-                <code>
-                  {EXAMPLES[selectedTopic].code}
-                </code>
-              </pre>
-            </div>)}
-
-        </section>
+       <CoreConcepts />
+       <Examples />
       </main>
 
       <footer id='footer'>
         <p>Created by Murtaza Bazaz</p>
-        <p></p>
       </footer>
-    </div>
+    </>
   );
 }
 
